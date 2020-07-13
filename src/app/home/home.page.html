@@ -1,17 +1,35 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Cambio en la branch develop
+      Formulario
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Primer commit</ion-title> <!-- Aqui se utilizo el comando "git add [Nombre del archivo]" agregando un solo elemento al repositorio local-->
-    </ion-toolbar>
-  </ion-header>
-  <ion-label>Segundo cambio</ion-label> <!--En este cambio se utilizo el comando "git add --all" para agregar todos los cambios hechos al repositorio local-->
+
+  <form #formulario="ngForm" (ngSubmit)="Submit()">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Dato 1</ion-label>
+        <ion-input type="text"
+                  name="dato1"
+                   [(ngModel)]="datos.dato1">
+
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Dato 2</ion-label>
+        <ion-input type="text"
+                   name="dato2"
+                   [(ngModel)]="datos.dato2">
+
+        </ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button expand="full" type="submit">
+      Enviar
+    </ion-button>
+  </form>
 
 </ion-content>
