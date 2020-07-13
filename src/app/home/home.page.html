@@ -11,25 +11,28 @@
   <form #formulario="ngForm" (ngSubmit)="Submit()">
     <ion-list>
       <ion-item>
-        <ion-label position="floating">Dato 1</ion-label>
+        <ion-label position="floating">Dato 1</ion-label> <!--Aqui es donde se ingresa un dato para almacenar-->
         <ion-input type="text"
                   name="dato1"
                    [(ngModel)]="datos.dato1">
-
         </ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="floating">Dato 2</ion-label>
+        <ion-label position="floating">Dato 2</ion-label> <!--Este otro input hace lo mismo que el anterior-->
         <ion-input type="text"
                    name="dato2"
                    [(ngModel)]="datos.dato2">
-
         </ion-input>
       </ion-item>
     </ion-list>
-    <ion-button expand="full" type="submit">
-      Enviar
+    <ion-button expand="full" type="submit">  <!--Este boton se encarga de hacer que se guarden los datos en las variables pero no se dan de alta-->
+      Agregar formulario      <!--este boton lo puse antes de probar con capacitor storage-->
     </ion-button>
   </form>
 
+  <ion-button expand="full" (click)="setItem()">Add to storage</ion-button> <!--Este boton guarda las cosas de manera local con capacitor storage-->
+  <ion-button expand="full" (click)="getItem()">Get from storage</ion-button> <!--Este otro sirve para que se muestren los datos almacenados en la consola-->
+  <ion-button expand="full" (click)="getKeys()">Get key</ion-button>
+  <ion-button expand="full" (click)="clearStorage()">Clear storage</ion-button> <!--Este es para borrar todo del almacenamiento-->
+  <ion-button expand="full" (click)="removeItem()">Remove item</ion-button>
 </ion-content>
