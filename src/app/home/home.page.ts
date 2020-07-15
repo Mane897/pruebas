@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Plugins } from '@capacitor/core';
-
-const {Storage} = Plugins;
+import { StorageService } from '../services/storage.service';
+import { AlertController, ModalController, IonList } from '@ionic/angular';
+import { AddModalPage } from '../modal/add-modal/add-modal.page';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +15,10 @@ export class HomePage implements OnInit{
     dato2: ''
   };
 
-  constructor() {}
+  constructor(
+    private storage: StorageService,
+    public modalController: ModalController
+  ) {}
 
   ngOnInit(){
   }
@@ -24,39 +27,13 @@ export class HomePage implements OnInit{
     console.log(this.datos);
   }
 
-
-  async setItem() {
-    const cartvalue = JSON.stringify([{
-      id: 1,
-      product: this.datos.dato1
-    }, {
-      id: 2,
-      product: this.datos.dato2
-    }]);
-
-    await Storage.set({
-      key: 'products',
-      value: cartvalue
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: AddModalPage,
+      cssClass: 'my-custom-class'
     });
-    await Storage.set({
-      key: 'user',
-      value: 'Usuario'
-    });
+    return await modal.present();
   }
 
-  async getItem() {   // obtener valor de los datos en consola
-    const products = await Storage.get({key: 'products'});
-    console.log(JSON.parse(products.value));
-  }
-  async removeItem() {  // remover un valor de los datos
-    await Storage.remove({ key: 'products'});
-  }
-  async getKeys() {
-    const keys = await Storage.keys();
-    console.log('Keys ', keys);
-  }
-  async clearStorage() {  // limpiar datos
-    await Storage.clear();
-  }
 
 }

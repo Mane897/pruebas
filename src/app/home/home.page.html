@@ -29,10 +29,13 @@
       Agregar formulario      <!--este boton lo puse antes de probar con capacitor storage-->
     </ion-button>
   </form>
+<ion-button (click)="presentModal()">Camara</ion-button>
+<ion-button></ion-button>
 
-  <ion-button expand="full" (click)="setItem()">Add to storage</ion-button> <!--Este boton guarda las cosas de manera local con capacitor storage-->
-  <ion-button expand="full" (click)="getItem()">Get from storage</ion-button> <!--Este otro sirve para que se muestren los datos almacenados en la consola-->
-  <ion-button expand="full" (click)="getKeys()">Get key</ion-button>
-  <ion-button expand="full" (click)="clearStorage()">Clear storage</ion-button> <!--Este es para borrar todo del almacenamiento-->
-  <ion-button expand="full" (click)="removeItem()">Remove item</ion-button>
 </ion-content>
+
+<!--ion-fab vertical="top" horizontal="end">
+  <ion-fab-button (click)="presentModal()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab-->
