@@ -5,8 +5,10 @@ import { Storage } from '@ionic/storage';
 @Injectable({
   providedIn: 'root'
 })
+class Photo {
+  data: any;
+}
 export class PhotoService {
-  private base64Image: string;
 
   public photos: Photo[] = [];
 
@@ -31,14 +33,10 @@ export class PhotoService {
       console.log('Camera issue: ' + err);
     });
   }
-
   loadSaved() {
     this.storage.get('photos').then((photos) => {
       this.photos = photos || [];
     });
   }
-}
-class Photo {
-  data: any;
 }
 

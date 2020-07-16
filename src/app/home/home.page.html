@@ -29,13 +29,13 @@
       Agregar formulario      <!--este boton lo puse antes de probar con capacitor storage-->
     </ion-button>
   </form>
-<ion-button (click)="presentModal()">Camara</ion-button>
-<ion-button></ion-button>
-
+<ion-list>
+  <ion-item>
+    <ion-fab vertical="top" horizontal="end">
+      <ion-fab-button (click)="presentModal()"> <!--fabbutton para abrir la modalPage-->
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </ion-item>
+</ion-list>
 </ion-content>
-
-<!--ion-fab vertical="top" horizontal="end">
-  <ion-fab-button (click)="presentModal()">
-    <ion-icon name="add"></ion-icon>
-  </ion-fab-button>
-</ion-fab-->

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, ModalController, IonList } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
 import { PhotoService } from '../../services/photo.service';
 
 
